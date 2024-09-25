@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<!-- 리스트 전부 가져오기 -->
+	<entry key="boardList">
+	SELECT
+		 BOARD_NO 
+		,BOARD_TITLE
+        ,BOARD_CONTENT
+        ,COUNT
+        ,LIKES
+        ,CREATE_DATE
+        ,USER_ID
+        ,CATEGORY_NAME
+	FROM BOARD
+	JOIN MEMBER ON (BOARD_WRITER=USER_NO)
+	JOIN BOARD_CATEGORY USING(CATEGORY_NO)
+	</entry>
+	
+	
+	<!-- 조회수 증가 -->
+	<entry key="boardCount">
+	UPDATE BOARD
+	SET COUNT = COUNT+1
+	WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 좋아요 증가 -->
+	<entry key="likesCount">
+	UPDATE BOARD
+	SET LIKES = LIKES+1
+	WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 게시판 상세보기 -->
+	<entry key="boardDetail">
+	
+	
+	</entry>
+	
+	<entry key="">
+	
+	
+	</entry>
+	
+	<entry key="">
+	
+	
+	</entry>
+</properties>
